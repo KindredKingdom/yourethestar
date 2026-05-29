@@ -619,24 +619,28 @@
         gap: 8px;
         align-items: center;
         background: white;
-        border: 1px solid var(--border);
+        border: 1px solid rgba(10,10,10,0.15);
         border-radius: 100px;
         padding: 6px 6px 6px 20px;
         margin-bottom: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       }
       #mc_embed_signup input.email {
         flex: 1;
         border: none !important;
         background: transparent !important;
-        font-size: 14px !important;
-        color: var(--ink) !important;
+        font-size: 15px !important;
+        color: #0A0A0A !important;
         outline: none !important;
-        padding: 0 !important;
+        padding: 8px 0 !important;
         height: auto !important;
-        width: auto !important;
-        min-width: 0 !important;
+        width: 200px !important;
+        min-width: 160px !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
       }
-      #mc_embed_signup input.email::placeholder { color: #aaa; }
+      #mc_embed_signup input.email::placeholder { color: #999 !important; }
       #mc_embed_signup .mc-field-group label { display: none; }
       #mc_embed_signup input[type=submit] {
         flex-shrink: 0;
