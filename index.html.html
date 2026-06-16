@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're the Star — Your Catalog. Your Rights. Your Future.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0A0A0A; --cream: #F5F0E8; --gold: #C9A84C; --gold-light: #F0D98A;
+    --rust: #B84C2A; --muted: #5A5550; --border: rgba(10,10,10,0.12); --card-bg: #FDFAF4;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 40px; background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border);
+  }
+  .logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--ink); text-decoration: none; }
+  .logo span { color: var(--gold); }
+  nav ul { list-style: none; display: flex; gap: 32px; }
+  nav ul a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; }
+  nav ul a:hover { color: var(--ink); }
+  .nav-cta { font-size: 13px; font-weight: 500; padding: 8px 20px; background: var(--ink); color: var(--cream); border: none; border-radius: 100px; cursor: pointer; text-decoration: none; }
+
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 120px 40px 80px; position: relative; }
+  .hero::before { content: ''; position: absolute; top: -200px; right: -300px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%); pointer-events: none; }
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(48px, 7vw, 90px); font-weight: 900; line-height: 1.0; letter-spacing: -2px; max-width: 800px; margin-bottom: 28px; }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub { font-size: 18px; font-weight: 300; line-height: 1.65; color: var(--muted); max-width: 560px; margin-bottom: 48px; }
+  .hero-sub strong { color: var(--ink); font-weight: 500; }
+  .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .btn-primary { font-size: 15px; font-weight: 500; padding: 16px 36px; background: var(--ink); color: var(--cream); border: none; border-radius: 100px; cursor: pointer; text-decoration: none; }
+  .btn-ghost { font-size: 15px; font-weight: 500; padding: 16px 32px; background: transparent; color: var(--ink); border: 1px solid var(--border); border-radius: 100px; cursor: pointer; text-decoration: none; }
+  .hero-stats { display: flex; gap: 48px; margin-top: 80px; padding-top: 48px; border-top: 0.5px solid var(--border); flex-wrap: wrap; }
+  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; display: block; }
+  .hero-stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  .ticker { background: var(--ink); color: var(--cream); padding: 12px 0; overflow: hidden; }
+  .ticker-inner { display: flex; white-space: nowrap; animation: ticker 30s linear infinite; }
+  .ticker-item { font-size: 13px; font-weight: 300; padding: 0 32px; display: inline-flex; align-items: center; gap: 16px; }
+  .ticker-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); display: inline-block; }
+  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  section { padding: 100px 40px; }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 50px); font-weight: 700; line-height: 1.15; letter-spacing: -1px; margin-bottom: 24px; }
+
+  /* SEARCH */
+  .search-box { display: flex; gap: 0; max-width: 600px; margin-bottom: 48px; background: white; border: 1px solid var(--border); border-radius: 100px; padding: 6px 6px 6px 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+  .search-box input { flex: 1; border: none; background: transparent; font-size: 15px; font-family: 'DM Sans', sans-serif; color: var(--ink); outline: none; }
+  .search-box input::placeholder { color: #aaa; }
+  .search-box button { padding: 10px 28px; background: var(--ink); color: var(--cream); border: none; border-radius: 100px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+
+  .feed-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
+  .feed-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-btn { font-size: 12px; font-weight: 500; padding: 6px 16px; border-radius: 100px; border: 1px solid var(--border); background: transparent; cursor: pointer; color: var(--muted); }
+  .filter-btn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+  .song-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .song-card { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+  .song-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+  .song-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); opacity: 0; transition: opacity 0.2s; }
+  .song-card:hover::before { opacity: 1; }
+  .card-status { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; margin-bottom: 16px; }
+  .status-open { background: rgba(50,150,80,0.12); color: #1a6b35; }
+  .status-urgent { background: rgba(184,76,42,0.12); color: var(--rust); }
+  .status-soon { background: rgba(201,168,76,0.15); color: #7a5c10; }
+  .status-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+  .card-artist { font-size: 12px; font-weight: 500; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .card-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 4px; line-height: 1.2; }
+  .card-year { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+  .card-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 16px; border-top: 0.5px solid var(--border); margin-bottom: 20px; }
+  .meta-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .meta-val { font-size: 13px; font-weight: 500; margin-top: 2px; }
+  .card-cta { width: 100%; padding: 12px; background: var(--ink); color: var(--cream); border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+  .card-cta.ghost { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+  .no-results { text-align: center; padding: 60px 20px; color: var(--muted); font-size: 15px; }
+
+  /* HOW IT WORKS */
+  .how { background: var(--card-bg); }
+  .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px; margin-top: 64px; border: 0.5px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .how-step { padding: 40px 32px; background: var(--card-bg); border-right: 0.5px solid var(--border); }
+  .how-step:last-child { border-right: none; }
+  .step-num { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: rgba(201,168,76,0.25); line-height: 1; margin-bottom: 20px; display: block; }
+  .step-title { font-size: 16px; font-weight: 500; margin-bottom: 10px; }
+  .step-desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+  /* EXPLAINER */
+  .explainer { background: var(--ink); color: var(--cream); }
+  .explainer .section-label { color: rgba(240,217,138,0.8); }
+  .explainer .section-label::before { background: rgba(240,217,138,0.8); }
+  .explainer .section-title { color: var(--cream); }
+  .explainer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 64px; }
+  .explainer-body { font-size: 16px; font-weight: 300; line-height: 1.8; color: rgba(245,240,232,0.7); }
+  .explainer-body p { margin-bottom: 20px; }
+  .explainer-body strong { color: var(--cream); font-weight: 500; }
+  .explainer-cards { display: flex; flex-direction: column; gap: 16px; }
+  .explainer-card { padding: 24px; border-radius: 12px; border: 0.5px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); }
+  .explainer-card-label { font-size: 11px; font-weight: 500; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .explainer-card-text { font-size: 14px; color: rgba(245,240,232,0.75); line-height: 1.6; }
+
+  /* CTA */
+  .cta-section { text-align: center; padding: 120px 40px; background: var(--card-bg); }
+  .cta-section .section-label { justify-content: center; }
+  .cta-section .section-label::before { display: none; }
+  .cta-sub { font-size: 17px; color: var(--muted); max-width: 480px; margin: 0 auto 48px; line-height: 1.65; }
+
+  /* Mailchimp overrides */
+  #mc_embed_signup { background: transparent !important; width: 100% !important; max-width: 500px !important; margin: 0 auto !important; }
+  #mc_embed_signup .mc-field-group { display: flex !important; gap: 8px !important; align-items: center !important; background: white !important; border: 1px solid var(--border) !important; border-radius: 100px !important; padding: 6px 6px 6px 20px !important; margin-bottom: 0 !important; box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important; }
+  #mc_embed_signup input.email { flex: 1 !important; border: none !important; background: transparent !important; font-size: 15px !important; color: #0A0A0A !important; outline: none !important; padding: 8px 0 !important; height: auto !important; width: 180px !important; min-width: 140px !important; display: block !important; font-family: 'DM Sans', sans-serif !important; }
+  #mc_embed_signup input.email::placeholder { color: #999 !important; }
+  #mc_embed_signup input[type=submit] { flex-shrink: 0 !important; padding: 10px 24px !important; background: var(--ink) !important; color: var(--cream) !important; border: none !important; border-radius: 100px !important; font-size: 13px !important; font-weight: 500 !important; cursor: pointer !important; font-family: 'DM Sans', sans-serif !important; }
+  #mc_embed_signup h2, #mc_embed_signup .indicates-required, #mc_embed_signup .asterisk, .refferal_badge, #mc_embed_signup .optionalParent .foot p { display: none !important; }
+  #mc_embed_signup div#mce-responses { margin: 0 !important; }
+  #mc_embed_signup #mce-success-response { color: #1a6b35 !important; font-size: 13px !important; margin-top: 8px !important; }
+  #mc_embed_signup #mce-error-response { color: var(--rust) !important; font-size: 13px !important; margin-top: 8px !important; }
+
+  /* MODAL */
+  .modal-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(10,10,10,0.6); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal { background: var(--cream); border-radius: 20px; padding: 40px; max-width: 480px; width: 100%; transform: translateY(20px); transition: transform 0.25s; border: 0.5px solid var(--border); }
+  .modal-overlay.open .modal { transform: translateY(0); }
+  .modal-close { float: right; background: none; border: none; font-size: 22px; cursor: pointer; color: var(--muted); }
+  .modal h3 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin: 0 0 8px; }
+  .modal-sub { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+  .modal-form { display: flex; flex-direction: column; gap: 12px; }
+  .modal-form input, .modal-form select { width: 100%; padding: 12px 16px; font-size: 14px; font-family: 'DM Sans', sans-serif; border: 1px solid var(--border); border-radius: 8px; background: white; color: var(--ink); outline: none; }
+  .modal-form input:focus, .modal-form select:focus { border-color: var(--gold); }
+  .modal-submit { width: 100%; padding: 14px; font-size: 15px; font-weight: 500; background: var(--ink); color: var(--cream); border: none; border-radius: 8px; cursor: pointer; font-family: 'DM Sans', sans-serif; margin-top: 4px; }
+  .modal-disclaimer { font-size: 11px; color: var(--muted); line-height: 1.5; margin-top: 12px; }
+
+  footer { background: var(--ink); color: rgba(245,240,232,0.5); padding: 48px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 900; color: var(--cream); }
+  .footer-logo span { color: var(--gold); }
+  .footer-note { font-size: 12px; max-width: 480px; line-height: 1.6; }
+
+  @media (max-width: 768px) {
+    nav ul { display: none; } nav { padding: 16px 20px; }
+    .hero { padding: 100px 20px 60px; } section { padding: 60px 20px; }
+    .explainer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-stats { gap: 28px; } footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">You're the <span>Star</span></a>
+  <ul>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#songs">Song Feed</a></li>
+    <li><a href="#rights">Your Rights</a></li>
+  </ul>
+  <a href="#claim" class="nav-cta">Check My Songs</a>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">Copyright Termination Rights — Powered by Federal Law</p>
+  <h1>Your catalog.<br>Your rights.<br><em>Take them back.</em></h1>
+  <p class="hero-sub">Federal law gives songwriters and artists the right to <strong>reclaim their copyrights</strong> from labels and publishers — but only within a specific window. Thousands of songs are eligible right now. Most artists don't know it.</p>
+  <div class="hero-actions">
+    <a href="#songs" class="btn-primary">Search Your Songs</a>
+    <a href="#rights" class="btn-ghost">What Is This?</a>
+  </div>
+  <div class="hero-stats">
+    <div><span class="hero-stat-num">2M+</span><p class="hero-stat-label">Songs currently eligible</p></div>
+    <div><span class="hero-stat-num">~40K</span><p class="hero-stat-label">New songs eligible each year</p></div>
+    <div><span class="hero-stat-num">5 yrs</span><p class="hero-stat-label">Window to act before it closes</p></div>
+    <div><span class="hero-stat-num">$0</span><p class="hero-stat-label">Cost to search your catalog</p></div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span class="ticker-dot"></span> Whitney Houston — "How Will I Know" (1985) — PA 000243349 — Window: 2020–2025</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Bobby Brown — "My Prerogative" (1988) — PA 000400857 — Window: 2023–2028</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> KRS-One — "Going Way Back" (1987) — PA 000366585 — Window: 2022–2027</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Anita Baker — "Sweet Love" (1986) — PA 000287947 — Window: 2021–2026</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Chuck D — "Public Enemy No. 1" (1987) — PA 000368193 — Window: 2022–2027</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Keith Sweat — "I Want Her" (1988) — PA 000361183 — Window: 2023–2028</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Heavy D — "The Overweight Lovers" (1989) — PA 000418334 — Window: 2024–2029</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Big Daddy Kane — "Wrath of Kane" (1989) — PA 000410429 — Window: 2024–2029</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Whitney Houston — "How Will I Know" (1985) — PA 000243349 — Window: 2020–2025</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Bobby Brown — "My Prerogative" (1988) — PA 000400857 — Window: 2023–2028</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> KRS-One — "Going Way Back" (1987) — PA 000366585 — Window: 2022–2027</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Anita Baker — "Sweet Love" (1986) — PA 000287947 — Window: 2021–2026</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Chuck D — "Public Enemy No. 1" (1987) — PA 000368193 — Window: 2022–2027</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Keith Sweat — "I Want Her" (1988) — PA 000361183 — Window: 2023–2028</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Heavy D — "The Overweight Lovers" (1989) — PA 000418334 — Window: 2024–2029</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Big Daddy Kane — "Wrath of Kane" (1989) — PA 000410429 — Window: 2024–2029</span>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <p class="section-label">The Process</p>
+  <h2 class="section-title">Simple. Automated. Yours.</h2>
+  <div class="how-grid">
+    <div class="how-step"><span class="step-num">01</span><p class="step-title">Search your catalog</p><p class="step-desc">Enter your name, your artist name, or a song title. We search the federal copyright database and show you every song that may be eligible for termination.</p></div>
+    <div class="how-step"><span class="step-num">02</span><p class="step-title">Confirm your window</p><p class="step-desc">We calculate your exact termination window — when it opens, when it closes, and how much time you have to act. Deadlines are non-negotiable under federal law.</p></div>
+    <div class="how-step"><span class="step-num">03</span><p class="step-title">File your notice</p><p class="step-desc">We generate your Notice of Termination and connect you with vetted entertainment attorneys to review and file it properly.</p></div>
+    <div class="how-step"><span class="step-num">04</span><p class="step-title">Own your future</p><p class="step-desc">Once reclaimed, your copyright is yours. Re-release it yourself, license it, sell it, or pass it to your heirs. Your legacy, on your terms.</p></div>
+  </div>
+</section>
+
+<!-- SONG FEED -->
+<section id="songs">
+  <div class="feed-header">
+    <div>
+      <p class="section-label">Live Database</p>
+      <h2 class="section-title">Search 2 million+ registered songs</h2>
+    </div>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search any artist or song — 30,000+ real registrations…" oninput="filterSongs()" disabled />
+    <button onclick="filterSongs()">Search</button>
+  </div>
+  <p id="loadStatus" style="font-size:13px;color:var(--muted);margin:-32px 0 32px;">Loading the full federal database…</p>
+
+  <div class="feed-filters" style="margin-bottom:32px;">
+    <button class="filter-btn active" onclick="setFilter(this,'all')">All</button>
+    <button class="filter-btn" onclick="setFilter(this,'open')">Window Open</button>
+    <button class="filter-btn" onclick="setFilter(this,'urgent')">Act Now</button>
+  </div>
+
+  <div class="song-grid" id="songGrid"></div>
+  <p class="no-results" id="noResults" style="display:none;">No songs found. Try a different artist name or song title.</p>
+  <div id="loadMoreWrap" style="text-align:center;margin-top:32px;display:none;">
+    <button class="btn-ghost" id="loadMoreBtn" onclick="loadMore()">Show more results</button>
+  </div>
+</section>
+
+<!-- EXPLAINER -->
+<section class="explainer" id="rights">
+  <p class="section-label">Know Your Rights</p>
+  <h2 class="section-title">What the labels don't want you to know.</h2>
+  <div class="explainer-grid">
+    <div class="explainer-body">
+      <p>When you signed your first publishing or recording deal, you almost certainly signed away your copyright. You needed the advance. You needed the distribution. You needed the label's machinery. You did what you had to do.</p>
+      <p>But Congress had a different idea about how this should work. <strong>The Copyright Act of 1976 includes a provision specifically designed to protect artists from deals they made when they were young, broke, or just didn't know better.</strong></p>
+      <p>It's called the Termination Right. After 35 years, you can take your copyright back. Not renegotiate it. Take it. The law uses the word "inalienable" — meaning your label cannot stop you, no matter what your contract says.</p>
+      <p>And in January 2026, a federal appeals court ruled that <strong>this right extends to your worldwide copyright</strong> — not just the United States. That ruling just changed the math on every eligible song in existence.</p>
+      <p>The catch: you have a five-year window to act. Miss it, and the right is gone forever. Most artists miss it simply because nobody told them it was there. <strong>That's what You're the Star is for.</strong></p>
+    </div>
+    <div class="explainer-cards">
+      <div class="explainer-card"><p class="explainer-card-label">The 35-Year Rule</p><p class="explainer-card-text">For songs written after January 1, 1978, the original author may terminate the copyright grant 35 years after the date of publication. The window stays open for 5 years.</p></div>
+      <div class="explainer-card"><p class="explainer-card-label">Who Can File</p><p class="explainer-card-text">The original songwriter or composer. If the artist has passed, their heirs — spouse, children, or estate — inherit the termination right. It cannot be contracted away.</p></div>
+      <div class="explainer-card"><p class="explainer-card-label">The 2026 Ruling</p><p class="explainer-card-text">The Fifth Circuit Court of Appeals ruled that successful termination reclaims worldwide rights, not just US rights. Every eligible song just became significantly more valuable.</p></div>
+      <div class="explainer-card"><p class="explainer-card-label">The Timing Requirement</p><p class="explainer-card-text">Notice must be filed with the Copyright Office no less than 2 years and no more than 10 years before the effective termination date. Getting this wrong forfeits the right.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="claim">
+  <p class="section-label">Get Started Free</p>
+  <h2 class="section-title">Your catalog is waiting. So is the clock.</h2>
+  <p class="cta-sub">Enter your email and we'll send you a personalized report of every song in your catalog that may be eligible for termination — completely free.</p>
+  <div id="mc_embed_shell">
+    <div id="mc_embed_signup">
+      <form action="https://yourethestar.us1.list-manage.com/subscribe/post?u=663ff49573db239fbf3636ada&amp;id=f5300a66e8&amp;f_id=008e28e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <div id="mc_embed_signup_scroll">
+          <div class="mc-field-group">
+            <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="" placeholder="Your email address">
+            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Check My Catalog">
+          </div>
+          <div id="mce-responses" class="clear foot">
+            <div class="response" id="mce-error-response" style="display:none;"></div>
+            <div class="response" id="mce-success-response" style="display:none;"></div>
+          </div>
+          <div aria-hidden="true" style="position:absolute;left:-5000px;">
+            <input type="text" name="b_663ff49573db239fbf3636ada_f5300a66e8" tabindex="-1" value="">
+          </div>
+        </div>
+      </form>
+    </div>
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+    <script type="text/javascript">(function($){window.fnames=new Array();window.ftypes=new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj=jQuery.noConflict(true);</script>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin-top:16px;">No spam. No commitment. Just your rights.</p>
+</section>
+
+<footer>
+  <div class="footer-logo">You're the <span>Star</span> Productions, LLC</div>
+  <p class="footer-note">You're the Star Productions is an information and document preparation service. We are not a law firm and do not provide legal advice. All termination notices should be reviewed by a licensed entertainment attorney before filing. Est. 2005 · Kansas City, MO · yourethestar.pro</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h3 id="modal-title">Is this your song?</h3>
+    <p class="modal-sub" id="modal-sub">Tell us who you are and we'll confirm your eligibility, calculate your exact deadline, and walk you through the next steps.</p>
+    <div class="modal-form">
+      <input type="text" id="modal-name" placeholder="Your full legal name" />
+      <input type="text" id="modal-artist" placeholder="Artist name (if different)" />
+      <input type="email" id="modal-email" placeholder="Email address" />
+      <select id="modal-role">
+        <option value="">Your role on this song…</option>
+        <option>Songwriter</option>
+        <option>Producer</option>
+        <option>Vocals</option>
+        <option>Heir</option>
+        <option>Attorney</option>
+      </select>
+      <button class="modal-submit" onclick="handleSubmit(this)">Confirm My Eligibility →</button>
+    </div>
+    <form id="hiddenMcForm" action="https://yourethestar.us1.list-manage.com/subscribe/post?u=663ff49573db239fbf3636ada&amp;id=f5300a66e8&amp;f_id=008e28e1f0" method="post" target="hiddenMcFrame" style="display:none;">
+      <input type="email" name="EMAIL" id="hidden-EMAIL">
+      <input type="text" name="FNAME" id="hidden-FNAME">
+      <input type="text" name="LNAME" id="hidden-LNAME">
+      <input type="text" name="MMERGE3" id="hidden-MMERGE3">
+      <input type="text" name="b_663ff49573db239fbf3636ada_f5300a66e8" tabindex="-1" value="">
+    </form>
+    <iframe name="hiddenMcFrame" style="display:none;"></iframe>
+    <p class="modal-disclaimer">Your information is private and will never be shared. By submitting you agree to receive communications about your copyright status from You're the Star Productions.</p>
+  </div>
+</div>
+
+<script>
+// Curated featured songs shown instantly while full database loads
+const FEATURED = [
+  {t:"How Will I Know",a:"Houston, Whitney",y:1985,r:"PA 000243349",o:2020,c:2025,s:"urgent"},
+  {t:"Angel",a:"Baker, Anita",y:1984,r:"PA 000210599",o:2019,c:2024,s:"urgent"},
+  {t:"My Prerogative",a:"Brown, Bobby",y:1988,r:"PA 000400857",o:2023,c:2028,s:"open"},
+  {t:"Never Too Much",a:"Vandross, Luther",y:1981,r:"PA 000126323",o:2017,c:2022,s:"urgent"},
+  {t:"I Want Her",a:"Sweat, Keith",y:1988,r:"PA 000361183",o:2023,c:2028,s:"open"},
+  {t:"Rock Me Tonight (For Old Times Sake)",a:"Jackson, Freddie",y:1985,r:"PA 000265043",o:2020,c:2025,s:"urgent"},
+  {t:"Wrath of Kane",a:"Hardy, Antonio",y:1989,r:"PA 000410429",o:2024,c:2029,s:"open"},
+  {t:"Going Way Back",a:"Parker, Lawrence",y:1987,r:"PA 000366585",o:2022,c:2027,s:"urgent"},
+  {t:"Public Enemy No. 1",a:"Ridenhour, Carlton",y:1987,r:"PA 000368193",o:2022,c:2027,s:"urgent"},
+  {t:"The Overweight Lovers in the House",a:"Myers, Dwight",y:1989,r:"PA 000418334",o:2024,c:2029,s:"open"},
+  {t:"Circumstantial Evidence",a:"Edmonds, Kenny",y:1988,r:"PA 000356908",o:2023,c:2028,s:"open"},
+  {t:"U Know What Time It Is",a:"Saddler, Joseph",y:1987,r:"PA 000337545",o:2022,c:2027,s:"urgent"},
+  {t:"My Fantasy",a:"Riley, Teddy",y:1989,r:"PA 000438050",o:2024,c:2029,s:"open"},
+  {t:"Freedom of Speak (We Got Three Minutes)",a:"Mercer, Kelvin",y:1988,r:"PA 000373573",o:2023,c:2028,s:"open"},
+  {t:"Those Eyes",a:"Griffin, William",y:1990,r:"PAu001341523",o:2025,c:2030,s:"open"},
+  {t:"This Is What We Do",a:"Burrell, Stanley Kirk",y:1990,r:"PA 000498306",o:2025,c:2030,s:"open"},
+];
+
+let FULL_DB = [];
+let dbLoaded = false;
+let currentFilter = 'all';
+let currentQuery = '';
+let displayCount = 24;
+const PAGE_SIZE = 24;
+
+function statusLabel(s) {
+  if (s.s === 'urgent') return `<span class="card-status status-urgent"><span class="status-dot"></span> Act Now — Closing ${s.c}</span>`;
+  if (s.s === 'open') return `<span class="card-status status-open"><span class="status-dot"></span> Window Open</span>`;
+  return `<span class="card-status status-soon"><span class="status-dot"></span> Opens ${s.o}</span>`;
+}
+function statusColor(s) {
+  if (s.s === 'urgent') return 'color:var(--rust)';
+  if (s.s === 'open') return 'color:#1a6b35';
+  return 'color:#7a5c10';
+}
+function displayArtist(a) {
+  // Convert "Last, First" to "First Last" for display when it looks like a name
+  const parts = a.split(',');
+  if (parts.length === 2) {
+    const last = parts[0].trim();
+    const first = parts[1].trim();
+    if (first && last) return `${first} ${last}`;
+  }
+  return a;
+}
+
+function renderCards(list, append = false) {
+  const grid = document.getElementById('songGrid');
+  const none = document.getElementById('noResults');
+  const loadMoreWrap = document.getElementById('loadMoreWrap');
+
+  if (!list.length && !append) { grid.innerHTML = ''; none.style.display = ''; loadMoreWrap.style.display = 'none'; return; }
+  none.style.display = 'none';
+
+  const slice = list.slice(append ? grid.children.length : 0, displayCount);
+  const html = slice.map(s => `
+    <div class="song-card" onclick="openModal('${(s.t||'').replace(/'/g,"\\'")}','${displayArtist(s.a).replace(/'/g,"\\'")}','${s.y}','${s.r}')">
+      ${statusLabel(s)}
+      <p class="card-artist">${displayArtist(s.a)}</p>
+      <h3 class="card-title">${s.t}</h3>
+      <p class="card-year">Registered ${s.y}</p>
+      <div class="card-meta">
+        <div><p class="meta-label">Window Opens</p><p class="meta-val">${s.o}</p></div>
+        <div><p class="meta-label">Window Closes</p><p class="meta-val">${s.c}</p></div>
+        <div><p class="meta-label">Reg. Number</p><p class="meta-val" style="font-size:11px;">${s.r}</p></div>
+        <div><p class="meta-label">Status</p><p class="meta-val" style="${statusColor(s)}">${s.s === 'urgent' ? 'Act Now' : 'Eligible'}</p></div>
+      </div>
+      <button class="card-cta">Is this your song? →</button>
+    </div>`).join('');
+
+  if (append) grid.insertAdjacentHTML('beforeend', html);
+  else grid.innerHTML = html;
+
+  loadMoreWrap.style.display = list.length > displayCount ? '' : 'none';
+}
+
+function getActiveList() {
+  const source = dbLoaded ? FULL_DB : FEATURED;
+  let list = source;
+  if (currentFilter !== 'all') list = list.filter(s => s.s === currentFilter);
+  if (currentQuery) {
+    const q = currentQuery.toLowerCase().trim();
+    // Build a "reversed name" version too, since author data is stored "Last, First"
+    const words = q.split(/\s+/).filter(Boolean);
+    const reversed = words.length > 1 ? [words[words.length - 1], ...words.slice(0, -1)].join(' ') : q;
+    list = list.filter(s => {
+      const a = (s.a || '').toLowerCase();
+      const t = (s.t || '').toLowerCase();
+      const aNoComma = a.replace(',', '');
+      return a.includes(q) || t.includes(q) || aNoComma.includes(q) || aNoComma.includes(reversed) || a.includes(reversed);
+    });
+  }
+  return list;
+}
+
+function filterSongs() {
+  currentQuery = document.getElementById('searchInput').value.trim();
+  displayCount = PAGE_SIZE;
+  renderCards(getActiveList());
+}
+
+function setFilter(btn, f) {
+  currentFilter = f;
+  displayCount = PAGE_SIZE;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCards(getActiveList());
+}
+
+function loadMore() {
+  displayCount += PAGE_SIZE;
+  renderCards(getActiveList());
+}
+
+// Load the full 30,000+ record database in the background
+fetch('./song-index.json')
+  .then(r => { if (!r.ok) throw new Error('fetch failed'); return r.json(); })
+  .then(data => {
+    FULL_DB = data;
+    dbLoaded = true;
+    document.getElementById('searchInput').disabled = false;
+    document.getElementById('loadStatus').textContent = `Searching ${data.length.toLocaleString()} real federal copyright registrations.`;
+    renderCards(getActiveList());
+  })
+  .catch(() => {
+    document.getElementById('loadStatus').textContent = 'Showing featured results. Full search temporarily unavailable.';
+    document.getElementById('searchInput').disabled = false;
+  });
+
+let currentSong = {};
+function openModal(title, artist, year, reg) {
+  currentSong = {title, artist, year, reg};
+  document.getElementById('modal-title').textContent = `"${title}" — is this your song?`;
+  document.getElementById('modal-sub').textContent = `Registered ${year} by ${artist}. Registration: ${reg}. Tell us who you are and we'll confirm your eligibility and calculate your exact filing deadline.`;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
+function closeModalOutside(e) { if (e.target === document.getElementById('modal')) closeModal(); }
+function handleSubmit(btn) {
+  const name = document.getElementById('modal-name').value.trim();
+  const artist = document.getElementById('modal-artist').value.trim();
+  const email = document.getElementById('modal-email').value.trim();
+  const role = document.getElementById('modal-role').value;
+  if (!email) { document.getElementById('modal-email').style.borderColor = 'var(--rust)'; return; }
+
+  const nameParts = name.split(' ');
+  document.getElementById('hidden-EMAIL').value = email;
+  document.getElementById('hidden-FNAME').value = nameParts[0] || '';
+  document.getElementById('hidden-LNAME').value = nameParts.slice(1).join(' ') || '';
+  document.getElementById('hidden-MMERGE3').value = artist || '';
+  document.getElementById('hiddenMcForm').submit();
+
+  btn.textContent = '✓ We\'ll be in touch!';
+  btn.style.background = '#1a6b35';
+  setTimeout(closeModal, 1800);
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// Initial render with featured songs while full DB loads
+renderCards(getActiveList());
+</script>
+</body>
+</html>
