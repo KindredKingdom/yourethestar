@@ -21,8 +21,6 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing required song information.' });
   }
 
-  // Build the absolute URL Stripe should send the customer back to.
-  // VERCEL_URL is automatically provided by Vercel at runtime.
   const origin = req.headers.origin || `https://${process.env.VERCEL_URL || 'yourethestar.pro'}`;
 
   try {
@@ -33,8 +31,38 @@ export default async function handler(req, res) {
     params.append('line_items[0][price_data][currency]', 'usd');
     params.append('line_items[0][price_data][product_data][name]', `Notice of Termination — "${title}"`);
     params.append('line_items[0][price_data][product_data][description]', `Draft document for ${artist}, registration ${reg}`);
-    params.append('line_items[0][price_data][unit_amount]', '1900'); // $19.00 in cents
+    params.append('line_items[0][price_data][unit_amount]', '1900');
     params.append('line_items[0][quantity]', '1');
 
-    // Stash everything we need to regenerate the document after payment.
-    // Stripe metadata values must be strings.
+    params.append('metadata[title]', title);
+    params.append('metadata[artist]', artist);
+    params.append('metadata[year]', String(year || ''));
+    params.append('metadata[reg]', reg);
+    params.append('metadata[opens]', String(opens || ''));
+    params.append('metadata[closes]', String(closes || ''));
+    params.append('metadata[claimantName]', claimantName || '');
+    params.append('metadata[claimantRole]', claimantRole || '');
+    params.append('metadata[format]', format || 'docx');
+
+    const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${STRIPE_SECRET_KEY}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: params.toString(),
+    });
+
+    const session = await stripeResponse.json();
+
+    if (!stripeResponse.ok) {
+      console.error('Stripe error:', session);
+      return res.status(500).json({ error: session.error?.message || 'Stripe could not create a checkout session.' });
+    }
+
+    return res.status(200).json({ url: session.url, id: session.id });
+  } catch (err) {
+    console.error('Checkout session error:', err);
+    return res.status(500).json({ error: 'Something went wrong creating your checkout session.' });
+  }
+}
